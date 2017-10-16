@@ -8,15 +8,21 @@ class ListItem extends Component {
 
   renderDescription() {
     const {library, expanded } = this.props;
+    const { titleStyle, descStyle } = styles;
+
     if ( expanded ) {
       return (
-        <Text>{library.description}</Text>
+        <CardSection>
+          <Text style={descStyle}>
+            {library.description}
+          </Text>
+        </CardSection>
       );
     }
   }
 
   render() {
-    const { titleStyle } = styles;
+    const { titleStyle, descStyle } = styles;
     const { id, title } = this.props.library;
 
 
@@ -39,6 +45,10 @@ const styles = {
   titleStyle: {
     fontSize: 18,
     paddingLeft: 15
+  },
+  descStyle: {
+    flex: 1,
+    paddingLeft: 5
   }
 };
 
